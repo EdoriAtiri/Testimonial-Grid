@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --quite-small: 5px;
+  --small: 10px;
+  --mid: 20px;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+body {
+  display: grid;
+  place-items: center;
+  margin: var(--mid);
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 13px;
+  background-color: hsl(210, 46%, 95%);
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  width: 90%;
+  gap: calc(var(--mid) + var(--quite-small));
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 280px 280px;
+  grid-template-areas:
+    'card1 card1 card2 card5'
+    'card3 card4 card4 card5';
+}
+
+.cards {
+  min-width: 250px;
+  min-height: 250px;
+  height: auto;
+  /* height: fit-content; */
+  padding: var(--mid) calc(var(--mid) + var(--small));
+  border-radius: calc(var(--quite-small) + 3px);
+  text-align: start;
+}
+
+.card1 {
+  background-color: hsl(263, 55%, 52%);
+  grid-area: card1;
+  background-image: url(images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: 80% 0%;
+}
+.card2 {
+  background-color: hsl(217, 19%, 35%);
+  grid-area: card2;
+}
+.card3 {
+  background-color: hsl(0, 0%, 100%);
+  grid-area: card3;
+}
+.card4 {
+  background-color: hsl(219, 29%, 14%);
+  grid-area: card4;
+}
+.card5 {
+  background-color: hsl(0, 0%, 100%);
+  grid-area: card5;
+}
+
+.card2,
+.card4,
+.card1 {
+  color: #fff;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--quite-small);
+  margin-bottom: var(--mid);
+}
+
+.avatar img {
+  border-radius: 50%;
+  margin-right: var(--quite-small);
+  position: relative;
+  top: 50%;
+  height: calc(var(--mid) * 2);
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  margin-left: var(--small);
+}
+
+.name p {
+  display: block;
+  margin: 0;
+  padding: 0;
+  opacity: 50%;
+  font-weight: 500;
+}
+
+.name h4 {
+  margin: 0 0 var(--quite-small) 0;
+  font-weight: 600;
+}
+
+.testimonial p {
+  line-height: 1.5;
+}
+
+.testimony {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.quote {
+  font-weight: 500;
+  opacity: 70%;
+}
+
+/* Tablet screens */
+@media (max-width: 1250px) {
+  .container {
+    height: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: max-content;
+    grid-template-areas:
+      'card1 card1'
+      'card2 card3'
+      'card5 card5'
+      'card4 card4';
+    margin-bottom: var(--small);
+  }
+  .cards {
+    padding: var(--small) calc(var(--mid) * 2);
+  }
+
+  .avatar {
+    margin-bottom: var(--quite-small);
+  }
+}
+
+/* Mobile Screens */
+@media (max-width: 650px) {
+  .container {
+    height: auto;
+    gap: var(--mid);
+    grid-template-columns: 1fr;
+    grid-auto-rows: max-content;
+    grid-template-areas:
+      'card1 '
+      'card2 '
+      'card3'
+      'card5'
+      'card4';
+    margin-bottom: var(--small);
+  }
+
+  body {
+    display: grid;
+    place-items: center;
+    margin: var(--small);
+    font-size: 12px;
+    background-color: hsl(210, 46%, 95%);
+    text-align: center;
+  }
+}
